@@ -82,7 +82,6 @@ send('(｡･∀･)ﾉﾞ嗨')
 # 循环判定
 while 1 == 1:
     msg = str(ws.recv())
-    print(msg)
     emprs = random.choice(emprs_list)
     site = random.choice(site_list)
     color = random.choice(color_list)
