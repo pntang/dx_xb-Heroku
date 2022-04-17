@@ -33,7 +33,7 @@ channel = 'your-channel'
 bz = '''
 ### SprinkleBot 帮助
 命令列表
-| 表情包 | 趣站 | 涩图 | 蛤 |  ﾟ∀ﾟ)σ |
+| 表情包 | 趣站 | 涩图 | 变色 | 蛤 |  ﾟ∀ﾟ)σ |
 '''
 # 加入和发送函数
 def join(bot_name, password, channel):
