@@ -6,6 +6,12 @@ import websocket
 from threading import Thread
 from flask import Flask
 
+# 配置bot信息
+bot_name = 'SprinkleBot'
+password = ' '
+channel = 'your-channel'
+
+
 app = Flask(__name__)
 @app.route("/")
 def main():
@@ -25,15 +31,10 @@ def hello():
     return 'Welcome to My Watchlist!'
 '''
 
-# 配置bot信息
-bot_name = 'SprinkleBot'
-password = ' '
-channel = 'your-channel'
-
 bz = '''
 ### SprinkleBot 帮助
 命令列表
-| 表情包 | 趣站 | 涩图 | 变色 | 蛤 |  ﾟ∀ﾟ)σ |
+| 表情包 | 趣站 | 涩图 | 蛤 |  ﾟ∀ﾟ)σ |
 '''
 # 加入和发送函数
 def join(bot_name, password, channel):
@@ -82,6 +83,7 @@ send('(｡･∀･)ﾉﾞ嗨')
 # 循环判定
 while 1 == 1:
     msg = str(ws.recv())
+    print(msg)
     emprs = random.choice(emprs_list)
     site = random.choice(site_list)
     color = random.choice(color_list)
@@ -90,15 +92,12 @@ while 1 == 1:
             send('$\color{red}主\color{orange}人\color{yellow}早\color{green}上\color{blue}好\color{purple}( ﾟ∀。)$')
         else:
             send('hey!')
-    elif 'onlineRemove' in msg:
-        send('bye(ノﾟ∀ﾟ)')
+    elif '@SprinkleBot' in msg:
+        send('hi，我是SprinkleBot，输入"帮助"来查看帮助内容！')
     elif '帮助' in msg and bot_name not in msg:
         send(bz)
     elif '涩图' in msg and bot_name not in msg:
         send('涩图一张，注意身体( ﾟ∀ﾟ) ![waifu](https://pic.sprinkle.workers.dev)')
-    elif '变色' in msg and bot_name not in msg:
-        send('/color ' + color + '')
-        send('艹艹艹艹艹巴啦啦小魔仙，变身！艹艹艹艹艹')
     elif '表情包' in msg and bot_name not in msg:
         send(emprs)
     elif '趣站' in msg and bot_name not in msg:
@@ -107,6 +106,19 @@ while 1 == 1:
         send('σ`∀´) ﾟ∀ﾟ)σ')
     elif ' ﾟ∀ﾟ)σ' in msg and bot_name not in msg:
         send('σ`∀´) ﾟ∀ﾟ)σ')
+    elif 'bot变色' in msg and '"trip":"EoZ5HO"' in msg:
+        send('/color ' + color + '')
+        send('艹艹艹艹艹巴啦啦小魔仙，变身！艹艹艹艹艹')
+    elif 'bot休眠' in msg and '"trip":"EoZ5HO"' in msg:
+        send('晚安')
+        while 1 == 1:
+            msg1 = str(ws.recv())
+            print(msg1)
+            if 'bot停止休眠' in msg1 and '"trip":"EoZ5HO"' in msg1:
+                send('睡醒咯')
+                break
+            elif '@SprinkleBot' in msg1:
+                send('SprinkleBot在睡觉呢')
     elif 'bot出去' in msg and '"trip":"EoZ5HO"' in msg:
         ws.close()
         break
