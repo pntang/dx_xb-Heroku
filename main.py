@@ -131,10 +131,10 @@ while 1 == 1:
             send('$HELLO设为True')
             hello = True
     elif 'botroll' in msg and '"trip":"EoZ5HO"' in msg:
-        if hello == True:
+        if roll == True:
             send('$ROLL设为False')
             roll = False
-        elif hello == False:
+        elif roll == False:
             send('$ROLL设为True')
             roll = True
     elif 'bot休眠' in msg and '"trip":"EoZ5HO"' in msg:
