@@ -87,7 +87,7 @@ site_list = [
 color_list = ['#4EEE94', '#00BFFF', '#FFFF00', '#FF6A6A', '#fff', '#FF0000', '#FF1493', '#90EE90']
 # 连接
 ws = websocket.WebSocket()
-# ws.connect("wss://ws.crosst.chat:35197/")
+ws.connect("wss://ws.crosst.chat:35197/")
 join(bot_name, password, channel)
 send('(｡･∀･)ﾉﾞ嗨')
 # 循环判定
@@ -95,7 +95,7 @@ while 1 == 1:
     msg = str(ws.recv())
     print(msg)
     if 'onlineAdd' in msg and hello == True:
-        if '"nick":"Sprinkle"' in msg and '"trip":"bjvk1k"' in msg:
+        if '"nick":"Sprinkle"' in msg and '"trip":"bjvk1K"' in msg:
             send('$\color{red}主\color{orange}人\color{yellow}早\color{green}上\color{blue}好\color{purple}( ﾟ∀。)$')
         else:
             send('hey!')
@@ -119,34 +119,34 @@ while 1 == 1:
         send('σ`∀´) ﾟ∀ﾟ)σ')
     elif ' ﾟ∀ﾟ)σ' in msg and bot_name not in msg:
         send('σ`∀´) ﾟ∀ﾟ)σ')
-    elif 'bot变色' in msg and '"trip":"bjvk1k"' in msg:
+    elif 'bot变色' in msg and '"trip":"bjvk1K"' in msg:
         color = random.choice(color_list)
         send('/color ' + color + '')
         send('艹艹艹艹艹巴啦啦小魔仙，变身！艹艹艹艹艹')
-    elif 'bothello' in msg and '"trip":"bjvk1k"' in msg:
+    elif 'bothello' in msg and '"trip":"bjvk1K"' in msg:
         if hello == True:
             send('$HELLO设为False')
             hello = False
         elif hello == False:
             send('$HELLO设为True')
             hello = True
-    elif 'botroll' in msg and '"trip":"bjvk1k"' in msg:
+    elif 'botroll' in msg and '"trip":"bjvk1K"' in msg:
         if roll == True:
             send('$ROLL设为False')
             roll = False
         elif roll == False:
             send('$ROLL设为True')
             roll = True
-    elif 'bot休眠' in msg and '"trip":"bjvk1k"' in msg:
+    elif 'bot休眠' in msg and '"trip":"bjvk1K"' in msg:
         send('晚安')
         while 1 == 1:
             msg1 = str(ws.recv())
             print(msg1)
-            if 'bot停止休眠' in msg1 and '"trip":"bjvk1k"' in msg1:
+            if 'bot停止休眠' in msg1 and '"trip":"bjvk1K"' in msg1:
                 send('睡醒咯')
                 break
             elif '@SprinkleBot' in msg1:
                 send('SprinkleBot在睡觉呢')
-    elif 'bot出去' in msg and '"trip":"bjvk1k"' in msg:
+    elif 'bot出去' in msg and '"trip":"bjvk1K"' in msg:
         ws.close()
         break
