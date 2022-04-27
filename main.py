@@ -93,7 +93,6 @@ send('(｡･∀･)ﾉﾞ嗨')
 # 循环判定
 while 1 == 1:
     msg = str(ws.recv())
-    print(msg)
     if 'onlineAdd' in msg and hello == True:
         if '"nick":"Sprinkle"' in msg and '"trip":"bjvk1K"' in msg:
             send('$\color{red}主\color{orange}人\color{yellow}早\color{green}上\color{blue}好\color{purple}( ﾟ∀。)$')
