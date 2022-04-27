@@ -10,7 +10,7 @@ from flask import Flask
 bot_name = 'SprinkleBot'
 password = ' '
 channel = '公共聊天室'
-hello = True
+hello = False
 roll = True
 
 app = Flask(__name__)
@@ -87,7 +87,7 @@ site_list = [
 color_list = ['#4EEE94', '#00BFFF', '#FFFF00', '#FF6A6A', '#fff', '#FF0000', '#FF1493', '#90EE90']
 # 连接
 ws = websocket.WebSocket()
-ws.connect("wss://ws.crosst.chat:35197/")
+# ws.connect("wss://ws.crosst.chat:35197/")
 join(bot_name, password, channel)
 send('(｡･∀･)ﾉﾞ嗨')
 # 循环判定
