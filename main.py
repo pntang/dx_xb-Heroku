@@ -8,7 +8,8 @@ channel = '公共聊天室'
 hello = False
 roll = False
 dev = False
-
+msg = '1'
+msg1 = '1'
 # ------------------------------配置bot信息------------------------------
 
 import sys
@@ -35,14 +36,14 @@ def send(message):
 
 # 功能列表
 bot_ignore = ['"nick":"do_ob"', '"nick":"bo_od"', '"nick":"Anotia"', '>', bot_name]
-bot_admin = ['"trip":"bjvk1K"', '"trip":"MTbR9U"', '"trip":"Z+zTvB"', '"trip":"w171pi"']
+bot_admin = ['"trip":"bjvk1K"', '"trip":"MTbR9U"', '"trip":"w171pi"']
 
 
 bz = '''
 | 指令 | 描述 | 指令 | 描述 |
 | :---: | :---: | :---: | :---: |
 | 表情包 | 发送一个表情包 | 蛤 | 嘲笑你(doge) |
-| 趣站 | 发送一个好玩的网站 | 呕 | 发送"贴贴"???🤮 |
+| 趣站 | 发送一个好玩的网站 | 贴贴 | 你好恶心(吐)🤮 |
 | 二次元图 | 发送涩涩的图片 | 传文件 | 使用分享站点传文件 |
 | 手气 | 摇一个随机数 | haha | #@最高机密#@ |
 '''
@@ -104,7 +105,7 @@ while 1 == 1:
     ignore = any(word if word in msg else False for word in bot_ignore)
     admin = any(word if word in msg else False for word in bot_admin)
     if 'onlineAdd' in msg:
-        if admin == True:
+        if admin == True and hello == True:
             send('$\color{red}主\color{orange}人\color{yellow}早\color{green}上\color{blue}好\color{purple}( ﾟ∀。)$')
         elif hello == 'True':
             send('hi,欢迎来到十字街')
@@ -129,10 +130,12 @@ while 1 == 1:
         send('σ`∀´) ﾟ∀ﾟ)σ')
     elif '贴贴' in msg and ignore == False:
         send('呕——(　ﾟдﾟ)')
+    elif '传文件' in msg and ignore == False:
+        send('使用 [十字街分享站](http://sprinkle.is-best.net/crosst) 密码:crosst.chat')
     elif 'bothaha' in msg and admin == True:
         send(haha)
         time.sleep(10)
-        send('rickroll 你被骗了蛤蛤蛤，大傻瓜')
+        send('rickroll 你被骗了hahaha，大傻瓜')
     elif 'bot变色' in msg and admin == True:
         color = random.choice(color_list)
         send('/color ' + color + '')
@@ -155,7 +158,7 @@ while 1 == 1:
         send('晚安')
         while 1 == 1:
             try:
-                msg = str(ws.recv())
+                msg1 = str(ws.recv())
             except:
                 ws.close()
                 ws = websocket.WebSocket()
