@@ -109,10 +109,9 @@ while 1 == 1:
         elif hello == 'True':
             send('hi,欢迎来到十字街')
     elif '@SprinkleBot' in msg and ignore == False:
-        send('hi，我是SprinkleBot，输入"帮助"来查看帮助内容!')
-    elif '帮助' in msg and ignore == False:
+        send('hi，我是SprinkleBot，输入"命令列表"来查看帮助内容!')
+    elif '命令列表' in msg and ignore == False:
         send(bz)
-        send(admin_bz)
     elif '涩图' in msg and  ignore == False:
         send('涩图一张，注意身体( ﾟ∀ﾟ) ![waifu](https://pic.sprinkle.workers.dev)')
     elif '表情包' in msg and ignore == False:
@@ -155,8 +154,13 @@ while 1 == 1:
     elif 'bot休眠' in msg and admin == True:
         send('晚安')
         while 1 == 1:
-            msg1 = str(ws.recv())
-            print(msg1)
+            try:
+                msg = str(ws.recv())
+            except:
+                ws.close()
+                ws = websocket.WebSocket()
+                ws.connect("wss://ws.crosst.chat:35197")
+                join(bot_name, password, channel)
             if 'bot停止休眠' in msg1 and admin == True:
                 send('睡醒咯')
                 break
