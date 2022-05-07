@@ -3,7 +3,7 @@
 
 # ------------------------------配置bot信息------------------------------
 bot_name = 'SprinkleBot'
-password = 'tc101217'
+password = ' '
 channel = '公共聊天室'
 hello = False
 roll = False
